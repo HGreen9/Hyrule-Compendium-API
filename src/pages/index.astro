@@ -37,29 +37,45 @@ const data = await res.json();
 				{
 					data.data.map( item =>
 					<li class="card-item">
-						
-						<figure>
-							<img class="card-image" src={item.image} alt={item.name} />
-							<figcaption>
-								{ item.description }
-								</figcaption>
-							</figure>
-						
-						<h3>{ item.name }</h3>
-						<p>{ item.category }</p>
-						
-						<details>{ item.drops }</details>
-						<details>{ item.common_locations }</details>
-						
-						
-					</li> 
+						  <figure>
+ 							   <img class="card-image" src={item.image} alt={item.name} />
+								    <figcaption>
+ 									     <p>{item.description}</p>
+ 									     <p><strong>Locations:</strong> {item.common_locations?.join(', ') || '–'}</p>
+ 									     <p><strong>Drops:</strong> {item.drops?.join(', ') || '–'}</p>
+ 					 			  </figcaption>
+			 			 </figure>
+ 							 <h3>{ item.name }</h3>
+ 							 <p>{ item.category }</p>
+					</li>
+
 					)
 				}
 		  
 			</ul>
 		  </main>
 		  
+		  <button id="back-to-top" aria-label="Back to top">
+			↑
+		  </button>
+		  
 
+		  <script>
+			const btn = document.getElementById('back-to-top');
+		  
+			window.addEventListener('scroll', () => {
+			  if (window.scrollY > 300) {
+				btn.classList.add('show');
+			  } else {
+				btn.classList.remove('show');
+			  }
+			});
+		  
+			btn.addEventListener('click', () => {
+			  window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+		  </script>
+		  
 
 	</body>
 </html>
