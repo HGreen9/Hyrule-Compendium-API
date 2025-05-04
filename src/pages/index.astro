@@ -1,81 +1,64 @@
 ---
-// Import Stylesheet
 import '../styles/global.css';
 
-// data source
-// replace temporary JSON placeholder API
 const source = 'https://botw-compendium.herokuapp.com/api/v3/compendium/all';
-// fetch the data
-const res = await fetch(source); 
-// store retreived data
+const res = await fetch(source);
 const data = await res.json();
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Hyrule Compendium</title>
+  </head>
+  <body>
+    <header class="masthead">
+      <h1 class="site-title">Hyrule Compendium</h1>
+    </header>
 
-		<!-- Normalize CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <main class="main-area">
+      <ul class="cards">
+        {data.data.map(item => (
+          <li class="card-item">
+            <figure>
+              <img
+                class="card-image"
+                src={item.image}
+                alt={item.name}
+              />
+              <figcaption>
+                <p>{item.description}</p>
+                <p>
+                  <strong>Locations:</strong>
+                  {item.common_locations?.join(', ') || '–'}
+                </p>
+                <p>
+                  <strong>Drops:</strong>
+                  {item.drops?.join(', ') || '–'}
+                </p>
+              </figcaption>
+            </figure>
+            <h3>{item.name}</h3>
+            <p>{item.category}</p>
+          </li>
+        ))}
+      </ul>
+    </main>
 
-		<title>Hyrule Compendium API</title>
-	</head>
-	<body>
-		
-		<header class="masthead">
-			<h1 class="site-title">Hyrule Compendium</h1>
-		</header>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
 
-		<main id="content" class="main-area">
-
-			<ul class="cards">
-		  
-				<!-- Your API Data -->
-				{
-					data.data.map( item =>
-					<li class="card-item">
-						  <figure>
- 							   <img class="card-image" src={item.image} alt={item.name} />
-								    <figcaption>
- 									     <p>{item.description}</p>
- 									     <p><strong>Locations:</strong> {item.common_locations?.join(', ') || '–'}</p>
- 									     <p><strong>Drops:</strong> {item.drops?.join(', ') || '–'}</p>
- 					 			  </figcaption>
-			 			 </figure>
- 							 <h3>{ item.name }</h3>
- 							 <p>{ item.category }</p>
-					</li>
-
-					)
-				}
-		  
-			</ul>
-		  </main>
-		  
-		  <button id="back-to-top" aria-label="Back to top">
-			↑
-		  </button>
-		  
-
-		  <script>
-			const btn = document.getElementById('back-to-top');
-		  
-			window.addEventListener('scroll', () => {
-			  if (window.scrollY > 300) {
-				btn.classList.add('show');
-			  } else {
-				btn.classList.remove('show');
-			  }
-			});
-		  
-			btn.addEventListener('click', () => {
-			  window.scrollTo({ top: 0, behavior: 'smooth' });
-			});
-		  </script>
-		  
-
-	</body>
+    <script type="module" defer>
+      const btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('show', window.scrollY > 300);
+      });
+      btn.addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      );
+    </script>
+  </body>
 </html>
