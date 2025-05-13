@@ -2,11 +2,12 @@
 const source = 'https://botw-compendium.herokuapp.com/api/v3/compendium/all';
 const res = await fetch(source);
 const data = await res.json();
+console.log(data.data);
 ---
 
 <ul class="cards">
   {data?.data.map(item => (
-    <li class="card-item">
+    <li class="card-item" data-category={item.category.toLowerCase()}>
       <figure>
         <img
           class="card-image"
@@ -30,3 +31,6 @@ const data = await res.json();
     </li>
   ))}
 </ul>
+<p id="no-results" style="display: none; text-align: center; color: var(--text-muted);">
+  No items found.
+</p>

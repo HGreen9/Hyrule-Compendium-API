@@ -1,9 +1,42 @@
- <script type="module" defer>
-      const btn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('show', window.scrollY > 300);
+<script type="module" defer>
+  // Back-to-top button functionality
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 300);
+  });
+  btn.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryFilter = document.getElementById('category-filter');
+    const cards = document.querySelectorAll('.card-item');
+    const noResults = document.getElementById('no-results');
+
+    if (!categoryFilter) {
+      console.error('Dropdown with id="category-filter" not found!');
+      return;
+    }
+
+    categoryFilter.addEventListener('change', (event) => {
+      const selectedCategory = event.target.value.toLowerCase(); // Normalize dropdown value
+      console.log('Selected category:', selectedCategory);
+      let hasVisibleCards = false;
+
+      cards.forEach((card) => {
+        const category = card.getAttribute('data-category'); // Use data-category attribute
+        console.log('Card category:', category);
+
+        if (selectedCategory === 'all' || category === selectedCategory) {
+          card.style.display = 'block';
+          hasVisibleCards = true;
+        } else {
+          card.style.display = 'none';
+        }
       });
-      btn.addEventListener('click', () =>
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      );
-    </script>
+
+      // Show or hide the "No items found" message
+      noResults.style.display = hasVisibleCards ? 'none' : 'block';
+    });
+  });
+</script>

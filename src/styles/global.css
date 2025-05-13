@@ -18,6 +18,8 @@ body {
   color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.4;
+  -webkit-user-select: text; /* Safari */
+  user-select: text;         /* Standard */
 }
 
 body::before {
@@ -224,4 +226,32 @@ body::before {
 
 #back-to-top:hover {
   background: hsl(188, 100%, 77%);
+}
+
+/* Style for the category filter dropdown */
+.category-filter {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.category-filter label {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-right: 0.5rem;
+}
+
+.category-filter select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-bg);
+  color: var(--text-light);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.category-filter select:hover,
+.category-filter select:focus {
+  border-color: var(--accent);
 }
