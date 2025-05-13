@@ -2,9 +2,15 @@
   --bg-color: hsl(209, 49%, 10%);
   --panel-bg: hsla(213, 43%, 12%, 0.85);
   --accent: hsl(203, 100%, 68%);
+  --accent-hover: hsl(188, 100%, 77%);
   --border: hsla(203, 100%, 68%, 0.4);
   --text-light: hsl(210, 35%, 91%);
   --text-muted: hsl(213, 16%, 55%);
+  --grid-line: hsla(203, 100%, 68%, 0.06);
+  --grid-highlight: hsla(210, 35%, 91%, 0.04);
+  --figcaption-bg: hsla(0, 0%, 0%, 0.65);
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --shadow-color: hsla(0, 0%, 0%, 0.5);
   --radius: 6px;
   --gap: 1em;
 }
@@ -31,17 +37,17 @@ body::before {
   background-image:
     repeating-linear-gradient(
       45deg,
-      hsla(203, 100%, 68%, 0.06) 0 2px,
+      var(--grid-line) 0 2px,
       transparent 2px 80px
     ),
     repeating-linear-gradient(
       -45deg,
-      hsla(203, 100%, 68%, 0.06) 0 2px,
+      var(--grid-line) 0 2px,
       transparent 2px 80px
     ),
     repeating-radial-gradient(
       circle at 0 0,
-      hsla(210, 35%, 91%, 0.04) 1px,
+      var(--grid-highlight) 1px,
       transparent 1px 20px
     );
   background-size: auto, auto, 20px 20px;
@@ -134,7 +140,7 @@ body::before {
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  background: hsla(0, 0%, 0%, 0.65);
+  background: var(--figcaption-bg);
   color: var(--text-light);
   font-size: .85rem;
   max-height: 0;
@@ -166,7 +172,7 @@ body::before {
 }
 
 .card-item figcaption::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(188, 100%, 77%);
+  background-color: var(--accent-hover);
 }
 
 .card-item figcaption p {
@@ -215,7 +221,7 @@ body::before {
 }
 
 .card-item .expand-btn:hover {
-  background: hsl(188, 100%, 77%);
+  background: var(--accent-hover);
 }
 
 .image-popup {
@@ -224,7 +230,7 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--overlay-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -239,7 +245,7 @@ body::before {
   max-width: 90%; 
   max-height: 90%; 
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.5);
+  box-shadow: 0 4px 12px var(--shadow-color);
   position: relative; 
 }
 
@@ -269,7 +275,7 @@ body::before {
 }
 
 .image-popup .close-btn:hover {
-  background: hsl(188, 100%, 77%);
+  background: var(--accent-hover);
 }
 
 @media (min-width: 60em) {
@@ -306,7 +312,7 @@ body::before {
 }
 
 #back-to-top:hover {
-  background: hsl(188, 100%, 77%);
+  background: var(--accent-hover);
 }
 
 .category-filter {
