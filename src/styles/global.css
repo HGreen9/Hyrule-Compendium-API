@@ -333,9 +333,60 @@ body::before {
   color: var(--text-light);
   outline: none;
   transition: border-color 0.3s;
+  appearance: none; 
+  position: relative;
+  background: var(--panel-bg);
+  padding-right: 2rem; 
 }
 
 .category-filter select:hover,
 .category-filter select:focus {
   border-color: var(--accent);
+}
+
+.category-filter select::after {
+  content: '▼'; 
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.category-filter select.open::after {
+  transform: translateY(-50%) rotate(180deg); 
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-bg);
+  color: var(--text-light);
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none; 
+  width: 100%;
+  padding-right: 2rem;
+}
+
+.select-wrapper::after {
+  content: '▼'; 
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.select-wrapper.open::after {
+  transform: translateY(-50%) rotate(180deg); 
 }

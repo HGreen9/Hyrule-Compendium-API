@@ -8,14 +8,23 @@
   );
 
   document.addEventListener('DOMContentLoaded', () => {
+    const selectWrapper = document.querySelector('.select-wrapper');
     const categoryFilter = document.getElementById('category-filter');
     const cards = document.querySelectorAll('.card-item');
     const noResults = document.getElementById('no-results');
 
-    if (!categoryFilter) {
-      console.error('Dropdown with id="category-filter" not found!');
+    if (!categoryFilter || !selectWrapper) {
+      console.error('Dropdown or wrapper not found!');
       return;
     }
+
+    categoryFilter.addEventListener('click', () => {
+      selectWrapper.classList.toggle('open'); 
+    });
+
+    categoryFilter.addEventListener('blur', () => {
+      selectWrapper.classList.remove('open'); 
+    });
 
     categoryFilter.addEventListener('change', (event) => {
       const selectedCategory = event.target.value.toLowerCase(); 
