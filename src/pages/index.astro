@@ -1,80 +1,36 @@
 ---
 import '../styles/global.css';
-
-const source = 'https://botw-compendium.herokuapp.com/api/v3/compendium/all';
-const res = await fetch(source);
-const data = await res.json();
+import DocHead from '../Components/DocHead.astro';
+import DocHeader from '../Components/DocHeader.astro';
+import CardContent from '../Components/CardContent.astro';
+import ScriptContent from '../Components/ScriptContent.astro';
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Hyrule Compendium</title>
-	
- <!-- Favicons -->
- <link rel="icon" href="/Assets/favicons/favicon.ico" sizes="32x32">
- <link rel="icon" href="/Assets/favicons/favicon.svg" type="image/svg+xml">
- <link rel="apple-touch-icon" href="/Assets/favicons/apple-touch-icon.png">
 
-  </head>
+    <DocHead />
+
   <body>
-    <header class="masthead">
-      <h1 class="site-title">Hyrule Compendium</h1>
-    </header>
+    
+    <DocHeader />
 
     <main class="main-area">
-      <ul class="cards">
-        {data.data.map(item => (
-          <li class="card-item">
-            <figure>
-              <img
-                class="card-image"
-                src={item.image}
-                alt={item.name}
-              />
-              <figcaption>
-                <p>{item.description}</p>
-                <p>
-                  <strong>Locations:</strong>
-                  {item.common_locations?.join(', ') || '–'}
-                </p>
-                <p>
-                  <strong>Drops:</strong>
-                  {item.drops?.join(', ') || '–'}
-                </p>
-              </figcaption>
-            </figure>
-            <h3>{item.name}</h3>
-            <p>{item.category}</p>
-          </li>
-        ))}
-      </ul>
+      
+      <CardContent />
+
     </main>
 
     <button id="back-to-top" aria-label="Back to top">↑</button>
 
-    <script type="module" defer>
-      const btn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('show', window.scrollY > 300);
-      });
-      btn.addEventListener('click', () =>
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      );
-    </script>
+    <ScriptContent />
+   
   </body>
 </html>
 
 <!-- 
  Need to edit readme 
- fix favicon
  add way to click on image to see it bigger
  spacing on text seriously bothers me
  the margins feel boring, add something?
  should it break layout and get bigger on hover?
-  add a way to filter by category?
   -->
