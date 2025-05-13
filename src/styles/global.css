@@ -20,7 +20,7 @@ body {
   padding: 0;
   position: relative;
   z-index: 0;
-  background: var(--bg-color) url('/patterns/hylian-pattern.png') center/cover fixed;
+  background: var(--bg-color);
   color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.4;
@@ -109,7 +109,6 @@ body::before {
   aspect-ratio: 1/1;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
-  position: relative; 
 }
 
 .card-image {
@@ -246,7 +245,6 @@ body::before {
   max-height: 90%; 
   border-radius: var(--radius);
   box-shadow: 0 4px 12px var(--shadow-color);
-  position: relative; 
 }
 
 .image-popup.show {
