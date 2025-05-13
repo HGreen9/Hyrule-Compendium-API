@@ -92,8 +92,8 @@ body::before {
 .card-item:focus-within {
   border-color: var(--accent);
   box-shadow: 0 0 12px var(--accent);
-  transform: scale(1.05); /* Slightly increase the size */
-  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s; /* Smooth scaling */
+  transform: scale(1.05); 
+  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s; 
 }
 
 .card-item figure {
@@ -103,6 +103,7 @@ body::before {
   aspect-ratio: 1/1;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
+  position: relative; 
 }
 
 .card-image {
@@ -191,6 +192,84 @@ body::before {
 
 .card-item details[open] summary::after {
   content: '▲';
+}
+
+.card-item .expand-btn {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  background: var(--accent);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.3);
+  transition: background-color 0.3s;
+}
+
+.card-item .expand-btn:hover {
+  background: hsl(188, 100%, 77%);
+}
+
+.image-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  padding: 1rem;
+}
+
+.image-popup img {
+  max-width: 90%; 
+  max-height: 90%; 
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.5);
+  position: relative; 
+}
+
+.image-popup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.image-popup .close-btn {
+  position: absolute;
+  top: 28%; 
+  left: 62%; 
+  transform: translate(-50%, -50%); 
+  background: var(--accent);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.3);
+}
+
+.image-popup .close-btn:hover {
+  background: hsl(188, 100%, 77%);
 }
 
 @media (min-width: 60em) {

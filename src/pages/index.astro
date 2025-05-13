@@ -9,16 +9,21 @@ import ScriptContent from '../Components/ScriptContent.astro';
 <html lang="en">
 
     <DocHead />
+    
+    <script src="/src/scripts/image-popup.js" defer></script>
 
   <body>
     
     <DocHeader />
 
     <main class="main-area">
-      
       <CardContent />
-
     </main>
+
+    <div class="image-popup" id="image-popup" aria-hidden="true">
+      <button class="close-btn" aria-label="Close Popup">×</button>
+      <img src="" alt="Expanded Image">
+    </div>
 
     <button id="back-to-top" aria-label="Back to top">↑</button>
 
@@ -26,10 +31,3 @@ import ScriptContent from '../Components/ScriptContent.astro';
    
   </body>
 </html>
-
-<!-- 
- Need to edit readme 
- add way to click on image to see it bigger
- spacing on text seriously bothers me
- the margins feel boring, add something?
-  -->

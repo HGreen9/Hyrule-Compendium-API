@@ -1,19 +1,20 @@
-# External Data with Astro
-* Utilize Astro framework for
-* Retrieving data
-* Templating data
-* Programmatically display data
+# Hyrule Compendium API
 
-* Reminders:
-> DO NOT statically “hard code” the data
+This project is a recreation of the Hyrule Compendium from *The Legend of Zelda* series, built for **DESN 468 Web Design 3**. It fulfills the assignment requirements by:
 
-All commands are run from the root of the project, from a terminal:
+- Sourcing and displaying API-based content
+- Using semantic HTML structure with `<figure>` and `<figcaption>` to group images and descriptions
+- Building the project with the **Astro framework**, incorporating components and layout refactoring
+- Dynamically rendering creature data using JSON without hardcoding
+- Styling the layout with **CSS Flexbox and Grid modules** to create a responsive, gallery-style interface
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
+
+I chose this API because I love Zelda, and this particular one has many categories, as well as images and item descriptions to display on the cards. 
+
+## Citations
+> [Hyrule Compendium API](https://gadhagod.github.io/Hyrule-Compendium-API/#/)
+
+> [Figma](https://www.figma.com/)
+
+> [Netlify](https://app.netlify.com/)

@@ -9,6 +9,7 @@ console.log(data.data);
   {data?.data.map(item => (
     <li class="card-item" data-category={item.category.toLowerCase()}>
       <figure>
+        <button class="expand-btn" aria-label={`Expand image of ${item.name}`}>+</button>
         <img
           class="card-image"
           src={item.image}
@@ -35,3 +36,8 @@ console.log(data.data);
 <p id="no-results" style="display: none; text-align: center; color: var(--text-muted);">
   No items found.
 </p>
+
+<div class="image-popup" id="image-popup" aria-hidden="true">
+  <button class="close-btn" aria-label="Close Popup">×</button>
+  <img src="" alt="Expanded Image">
+</div>
