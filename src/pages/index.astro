@@ -4,6 +4,7 @@ import DocHead from '../Components/DocHead.astro';
 import DocHeader from '../Components/DocHeader.astro';
 import CardContent from '../Components/CardContent.astro';
 import ScriptContent from '../Components/ScriptContent.astro';
+import ImagePopup from '../Components/ImagePopup.astro'; 
 ---
 
 <html lang="en">
@@ -20,10 +21,7 @@ import ScriptContent from '../Components/ScriptContent.astro';
       <CardContent />
     </main>
 
-    <div class="image-popup" id="image-popup" aria-hidden="true">
-      <button class="close-btn" aria-label="Close Popup">×</button>
-      <img src="" alt="Expanded Image">
-    </div>
+    <ImagePopup /> 
 
     <button id="back-to-top" aria-label="Back to top">↑</button>
 
