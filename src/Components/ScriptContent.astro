@@ -1,5 +1,4 @@
 <script type="module" defer>
-  // Back-to-top button functionality
   const btn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
     btn.classList.toggle('show', window.scrollY > 300);
@@ -19,12 +18,12 @@
     }
 
     categoryFilter.addEventListener('change', (event) => {
-      const selectedCategory = event.target.value.toLowerCase(); // Normalize dropdown value
+      const selectedCategory = event.target.value.toLowerCase(); 
       console.log('Selected category:', selectedCategory);
       let hasVisibleCards = false;
 
       cards.forEach((card) => {
-        const category = card.getAttribute('data-category'); // Use data-category attribute
+        const category = card.getAttribute('data-category'); 
         console.log('Card category:', category);
 
         if (selectedCategory === 'all' || category === selectedCategory) {
@@ -35,7 +34,6 @@
         }
       });
 
-      // Show or hide the "No items found" message
       noResults.style.display = hasVisibleCards ? 'none' : 'block';
     });
   });

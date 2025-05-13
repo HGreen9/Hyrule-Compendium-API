@@ -18,8 +18,8 @@ body {
   color: var(--text-light);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.4;
-  -webkit-user-select: text; /* Safari */
-  user-select: text;         /* Standard */
+  -webkit-user-select: text; 
+  user-select: text;        
 }
 
 body::before {
@@ -228,7 +228,6 @@ body::before {
   background: hsl(188, 100%, 77%);
 }
 
-/* Style for the category filter dropdown */
 .category-filter {
   margin: 1rem auto;
   text-align: center;
